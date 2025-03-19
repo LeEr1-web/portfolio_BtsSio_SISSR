@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Professionnel</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Styles généraux */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1a1a2e;
+            color: #fff;
+            padding-top: 100px; /* Espace pour l'en-tête fixe */
+        }
+
+        /* En-tête fixe */
+        header {
+            background: #16213e;
+            color: white;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        header h1 {
+            margin-left: 20px;
+            font-size: 24px;
+        }
+
+        /* Navigation */
+        nav {
+            margin-right: 20px;
+        }
+
+        nav button {
+            margin: 5px;
+            padding: 10px 20px;
+            border: none;
+            background: #0f3460;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        nav button:hover {
+            background: #e94560;
+            transform: scale(1.1);
+        }
+
+        /* Sections */
+        .section {
+            display: none;
+            padding: 40px;
+            background: #222;
+            margin: 20px auto;
+            width: 80%;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .section.active {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Conteneurs flexibles */
+        .flex-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .text-container {
+            max-width: 50%;
+            text-align: justify;
+        }
+
+        .image-container {
+            max-width: 40%;
+        }
+
+        .image-container img,
+        .image-container video {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        /* Figures et légendes */
+        figure {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        figure img,
+        figure video {
+            max-width: 80%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        figcaption {
+            font-size: 14px;
+            color: #ccc;
+            margin-top: 5px;
+            font-style: italic;
+            text-align: center;
+            max-width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Styles spécifiques pour les sections */
+        #intro, #BTS, #starlink, #reseaux, #videosurveillance, #maintenance, #onduleurs, #certification, #parcours, #perso, #contact {
+            margin-top: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Mon Portfolio</h1>
+        <nav>
+            <button onclick="showSection('intro')">Introduction</button>
+            
+            <button onclick="showSection('BTS')">BTS SIO</button>
+            <button onclick="showSection('starlink')">Starlink</button>
+            <button onclick="showSection('reseaux')">Réseaux</button>
+            <button onclick="showSection('videosurveillance')">Vidéosurveillance</button>
+            <button onclick="showSection('maintenance')">Maintenance</button>
+            <button onclick="showSection('onduleurs')">Onduleurs</button>
+            <button onclick="showSection('certification')">Certifications</button>
+            <button onclick="showSection('parcours')">Parcours</button>
+            <button onclick="showSection('perso')">Projets Personnels</button>
+            <button onclick="showSection('contact')">Contact</button>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Sections du portfolio -->
+        <section id="intro" class="section active">
+            <div class="text-container">
+                <p>
+                    Le BTS SIO option SISR (l’option que j’ai choisi) :
+                    L’option Solutions d’Infrastructure, Systèmes et Réseaux forme des professionnels des réseaux et équipements informatiques (installation, maintenance, sécurité). En sortant d’un BTS SIO SISR, vous serez capables de gérer et d’administrer le réseau d’une société et d’assurer sa sécurité et sa maintenance.
+                </p>
+            </div>
+        </section>
+
+        <!-- Section BTS SIO -->
+        <section id="BTS" class="section">
+            <h2>BTS SIO</h2>
+            <div class="text-container">
+                <p>
+                    Le BTS Services Informatiques aux Organisations est le résultat d’une rénovation en profondeur du BTS Informatique de Gestion. Il remplace ce dernier depuis la rentrée 2011.
+                </p>
+            </div>
+        </section>
+
+        <!-- Section Starlink -->
+        <section id="starlink" class="section">
+            <h2>Configuration de Réseaux Starlink</h2>
+            <div class="flex-container">
+                <div class="image-container">
+                    <img src="images/starlink.jpg" alt="Starlink">
+                </div>
+                <div class="text-container">
+                    <p>
+                        Starlink est une solution révolutionnaire pour fournir un accès Internet haut débit via un réseau de satellites en orbite basse.
+                    </p>
+                </div>
+            </div>
+            <figure>
+                <video controls>
+                    <source src="videos/starlink_scan.mp4" type="video/mp4">
+                </video>
+                <figcaption>Optimisation du signal Wi-Fi à l'aide d'outils comme WiFiman.</figcaption>
+            </figure>
+        </section>
+
+        <section id="reseaux" class="section">
+            <h2>Installation et Configuration des Réseaux</h2>
+            <div class="flex-container">
+                <div class="image-container">
+                    <img src="C:\Users\labic\Desktop\potfolio\reseaux.jpg" alt="Installation réseau">
+                </div>
+                <div class="text-container">
+                    <p>
+                        L'installation et la configuration de réseaux sont des compétences clés que j'ai développées au cours de mes études et de mes expériences professionnelles. J'ai travaillé sur des projets variés, allant de la mise en place de petits réseaux domestiques à des infrastructures complexes pour des entreprises. Cela inclut la configuration de routeurs, commutateurs, et baies de brassage, ainsi que la gestion des adresses IP et des protocoles de sécurité. J'ai également une expérience dans l'optimisation des réseaux pour améliorer la performance et la fiabilité, en utilisant des outils comme Wireshark pour diagnostiquer les problèmes de réseau. Mon objectif est toujours de fournir une solution adaptée aux besoins spécifiques de chaque client.
+                    </p>
+                </div>
+            </div>
+            <div class="fig_img ">
+                <figure>
+                    <img src="C:\Users\labic\Desktop\potfolio\reseaux1.jpg" alt="Optimisation du signal Wi-Fi">
+                    <figcaption>Test et amélioration de la couverture Wi-Fi.</figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <section id="videosurveillance" class="section">
+            <h2>Installation et Configuration de Vidéosurveillance</h2>
+            <div class="flex-container">
+                <div class="image-container">
+                    <img src="C:\Users\labic\Desktop\potfolio\videosurveillance.jpg" alt="Caméra de surveillance">
+                </div>
+                <div class="text-container">
+                    <p>
+                        La vidéosurveillance est un élément essentiel pour assurer la sécurité des biens et des personnes. J'ai installé et configuré des systèmes de vidéosurveillance pour des clients particuliers et professionnels, en utilisant des caméras IP, des enregistreurs numériques (NVR), et des logiciels de gestion centralisée. Mes compétences incluent le choix des équipements adaptés, l'installation physique des caméras, et la configuration des paramètres réseau pour permettre un accès distant sécurisé. J'ai également travaillé sur des projets intégrant des systèmes de détection de mouvement et des alertes en temps réel pour une sécurité proactive.
+                    </p>
+                </div>
+            </div>
+            <figure>
+                <img src="C:\Users\labic\Desktop\potfolio\videosurveillance1.jpg" alt="Optimisation du signal Wi-Fi">
+                <figcaption>Configuration avancée des caméras de surveillance.</figcaption>
+            </figure>
+        </section>
+
+        <section id="maintenance" class="section">
+            <h2>Maintenance Informatique</h2>
+            <div class="flex-container">
+                <div class="image-container">
+                    <img src="C:\Users\labic\Desktop\potfolio\maintenance.jpg" alt="Maintenance informatique">
+                </div>
+                <div class="text-container">
+                    <p>
+                        La maintenance informatique est une activité essentielle pour garantir la performance et la longévité des équipements. J'ai réalisé des interventions préventives et curatives sur des ordinateurs, serveurs, et autres équipements réseau. Cela inclut la mise à jour des logiciels, le remplacement de composants défectueux, et la résolution de problèmes matériels ou logiciels. J'ai également travaillé sur des projets de virtualisation et de migration de données pour améliorer l'efficacité des systèmes. Mon approche est toujours proactive, en identifiant les problèmes potentiels avant qu'ils ne deviennent critiques.
+                    </p>
+                </div>
+            </div>
+            <figure>
+                <img src="maintenance2.jpg" alt="Maintenance d'un ordinateur">
+                <figcaption>Réparation et maintenance d'un ordinateur.</figcaption>
+            </figure>
+        </section>
+
+        <section id="onduleurs" class="section">
+            <h2>Installation et Gestion des Onduleurs</h2>
+            <div class="flex-container">
+                <div class="image-container">
+                    <img src="C:\Users\labic\Desktop\potfolio\onduleur.jpg" alt="Onduleur">
+                </div>
+                <div class="text-container">
+                    <p>
+                        Les onduleurs jouent un rôle crucial dans la protection des équipements informatiques contre les coupures de courant et les variations de tension. J'ai installé et configuré des onduleurs pour des clients professionnels, en particulier dans des environnements critiques comme les centres de données. Cela inclut la sélection des modèles adaptés, l'installation physique, et la configuration des paramètres pour assurer une alimentation électrique stable. J'ai également travaillé sur des projets de maintenance préventive pour garantir la fiabilité des onduleurs sur le long terme.
+                    </p>
+                </div>
+            </div>
+            <figure>
+                <img src="onduleur2.jpg" alt="Installation d'un onduleur">
+                <figcaption>Installation et configuration d'un onduleur.</figcaption>
+            </figure>
+        </section>
+
+        <section id="contact" class="section">
+            <h2>Contact</h2>
+            <div class="flex-container">
+                <div class="text-container">
+                    <p>
+                        Pour toute demande de renseignements ou de collaboration, n'hésitez pas à me contacter via les coordonnées ci-dessous. Je suis toujours ouvert à de nouvelles opportunités et collaborations dans le domaine de l'informatique et des réseaux.
+                    </p>
+                    <ul>
+                        <li>Email: <a href="mailto:exemple@email.com">exemple@email.com</a></li>
+                        <li>Téléphone: +33 6 12 34 56 78</li>
+                        <li>LinkedIn: <a href="https://www.linkedin.com/in/exemple" target="_blank">Mon Profil LinkedIn</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="certification" class="section">
+            <h2>Certifications</h2>
+            <div class="flex-container">
+                <div class="text-container">
+                    <p>
+                        Au cours de mes études et de mes expériences professionnelles, j'ai obtenu plusieurs certifications qui attestent de mes compétences en informatique et en réseaux. Ces certifications incluent :
+                    </p>
+                    <ul>
+                        <li><strong>Certification Cisco CCNA</strong> : Une certification reconnue mondialement pour les compétences en réseaux informatiques.</li>
+                        <li><strong>Certification CompTIA Network+</strong> : Une validation de mes connaissances en infrastructure réseau et en sécurité.</li>
+                        <li><strong>Certification en Sécurité des Réseaux</strong> : Une formation approfondie sur les protocoles de sécurité et les bonnes pratiques.</li>
+                        <li><strong>Certification en Gestion de Projets Informatiques</strong> : Une certification qui démontre ma capacité à gérer des projets informatiques de A à Z.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="parcours" class="section">
+            <h2>Parcours Scolaire</h2>
+            <div class="flex-container">
+                <div class="text-container">
+                    <p>
+                        Mon parcours scolaire m'a permis d'acquérir des connaissances solides en informatique et en réseaux. Voici un aperçu de mon parcours :
+                    </p>
+                    <ul>
+                        <li><strong>BTS SIO (Services Informatiques aux Organisations)</strong> - Option SLAM (Solutions Logicielles et Applications Métiers) : Une formation axée sur le développement logiciel et la gestion de projets informatiques.</li>
+                        <li><strong>Baccalauréat STI2D (Sciences et Technologies de l'Industrie et du Développement Durable)</strong> - Option SIN (Systèmes d'Information et Numérique) : Une formation qui m'a initié aux bases de l'informatique et des systèmes numériques.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="perso" class="section">
+            <h2>Projets Personnels</h2>
+            <div class="flex-container">
+                <div class="text-container">
+                    <p>
+                        En dehors de mes études et de mon travail, j'aime explorer de nouvelles technologies et développer des projets personnels. Voici quelques-uns de mes centres d'intérêt et réalisations :
+                    </p>
+                    <ul>
+                        <li><strong>Développement de projets IoT (Internet des Objets)</strong> : J'ai créé plusieurs projets IoT, comme un système de surveillance de température et d'humidité utilisant un Raspberry Pi et des capteurs connectés.</li>
+                        <li><strong>Expérimentation avec des systèmes embarqués</strong> : J'ai travaillé sur des projets utilisant Arduino et ESP32 pour créer des dispositifs automatisés, comme un système d'éclairage intelligent.</li>
+                        <li><strong>Création de scripts automatisés</strong> : J'ai développé des scripts en Python pour automatiser des tâches répétitives, comme la gestion de fichiers ou la surveillance de réseaux.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <section>
+        QU’EST-CE QUE LA CYBERSÉCURITÉ ?
+
+        La cybersécurité concerne la protection des systèmes informatiques, réseaux et données contre les cybermenaces. Cela inclut la prévention des attaques, la détection des intrusions, la réponse aux incidents et la récupération après une violation de sécurité. Les professionnels de la cybersécurité utilisent des outils et des techniques pour protéger les informations confidentielles et garantir la confidentialité, l’intégrité et la disponibilité des données.
+
+        MA VEILLE CYBERSÉCURITÉ (ARTICLES)
+
+        Pour ma veille technologique j’ai choisi comme thématique la cybersécurité.
+        À l’ère numérique actuelle, la cybersécurité est devenue une préoccupation centrale pour les organisations et les particuliers.
+        L’évolution est rapide, et les menaces en ligne sont omniprésentes.
+
+        Les types d’attaques informatique les plus utilisées :
+        Phishing, Malware, Spyware, DDOS, Ingénierie Sociale, Injection SQL, Man-in-the-Middle (MitM), Brute Force.
+
+        Les types de sécurités pour luter contre les cyberattaques :
+        La sécurité des réseaux, sécurité des systèmes, sécurité des applications, sécurité des données, sensibilisation à la sécurité des utilisateurs.
+
+        Ci dessous une liste d’article permettant de rester informé sur l’actualité cybersécurité dans le monde informatique :
+
+    </section>
+
+    <script>
+        function showSection(sectionId) {
+            const currentActive = document.querySelector('.section.active');
+            const nextSection = document.getElementById(sectionId);
+
+            if (!nextSection) {
+                console.error(`Section with ID '${sectionId}' not found.`);
+                alert("Erreur : Section non trouvée !");
+                return;
+            }
+
+            if (currentActive === nextSection) return; // Empêche l'animation si on clique sur la même section
+
+            // Fait disparaître l'ancienne section
+            currentActive.style.opacity = "0";
+            currentActive.style.transform = "translateY(20px)";
+
+            setTimeout(() => {
+                currentActive.classList.remove('active');
+
+                // Affiche la nouvelle section après un court délai
+                nextSection.classList.add('active');
+                nextSection.style.opacity = "1";
+                nextSection.style.transform = "translateY(0)";
+            }, 500); // Temps en ms avant que la nouvelle section apparaisse
+        }
+    </script>
+</body>
+</html>

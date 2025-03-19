@@ -86,6 +86,7 @@
             font-weight: 600;
             margin-bottom: 20px;
             color: #16213e;
+            text-align: center;
         }
 
         /* Conteneurs flexibles */
@@ -176,8 +177,8 @@
             border-radius: 10px;
         }
 
-          /* Navigation interne pour la section stage */
-          .stage-nav {
+        /* Navigation interne pour la section stage */
+        .stage-nav {
             text-align: center;
             margin-bottom: 20px;
         }
@@ -202,10 +203,30 @@
         /* Sous-sections */
         .sub-section {
             display: none;
+            text-align: center;
+            padding: 20px;
         }
 
         .sub-section.active {
             display: block;
+        }
+
+        .sub-section h2 {
+            font-size: 28px;
+            margin-bottom: 15px;
+            color: #16213e;
+        }
+
+        .sub-section p, .sub-section ul {
+            text-align: left;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .sub-section ul {
+            list-style-type: disc;
+            padding-left: 40px;
         }
 
         /* Animation pour les sections */
@@ -251,6 +272,10 @@
                 padding: 8px 16px;
                 font-size: 14px;
             }
+
+            .sub-section p, .sub-section ul {
+                padding: 0 10px;
+            }
         }
     </style>
 </head>
@@ -261,7 +286,7 @@
         <nav>
             <button onclick="showSection('presentation')">Introduction</button>
             <button onclick="showSection('parcours')">Parcours</button>
-            <button onclick="showSection('stage')">expériences professionnel</button>
+            <button onclick="showSection('stage')">Expériences professionnelles</button>
             <button onclick="showSection('certification')">Certifications</button>
             <button onclick="showSection('veille_informatique')">Veille Informatique</button>
             <button onclick="showSection('soft_skills')">Soft Skills</button>
@@ -282,240 +307,161 @@
             </div>
             <div class="image-right">
                 <img src="C:\Users\labic\Desktop\portfolio\btssio.png" alt="Image 1">
-                    <br>j’ai rapidement orienté mes études vers le Brevet de Technicien Supérieur en Services Informatiques aux Organisations (BTS SIO), 
+                <p>
+                    j’ai rapidement orienté mes études vers le Brevet de Technicien Supérieur en Services Informatiques aux Organisations (BTS SIO), 
                     en optant pour la spécialité Solutions d’Infrastructure, Systèmes et Réseaux (SISR).
-
                     <br>Ce choix s’est avéré être une étape déterminante dans mon développement personnel et professionnel. 
                     <br>Grâce à cette formation, j’ai acquis des compétences techniques solides en administration des systèmes et des réseaux, 
                     en cybersécurité, et en gestion des infrastructures informatiques. Parallèlement, 
                     <br>j’ai développé des qualités essentielles telles que la rigueur, la résolution de problèmes complexes et la capacité à travailler en équipe.
-                    
-                    <br>Mon parcours, marqué par une transition progressive des sciences générales vers l’informatique spécialisée, 
-                    m’a permis de construire une base de connaissances diversifiée et de cultiver une approche analytique et méthodique. 
-                    <br>Aujourd’hui, je suis convaincu que cette combinaison de compétences techniques et de soft skills me prépare à relever les défis du monde professionnel et à contribuer activement à l’évolution des systèmes informatiques modernes.
-                    
-                    <br>À travers ce portfolio, je vous invite à découvrir mon parcours, 
-                    mes réalisations et les projets qui illustrent mon engagement et ma passion pour l’informatique et les réseaux.
                 </p>
             </div>
         </section>
 
-        <!-- Section Parcours -->
+       <!-- Section Parcours -->
         <section id="parcours" class="section">
-            <h2>Parcours/Compétences</h2>
-            <div class="image-right">
-                <img src="C:\Users\labic\Desktop\portfolio\btssio.png" alt="Image 1">
-                <h2>3 : Sécurité informatique</h2>
-                <p>
-                    Objectif : Protéger les données et les systèmes de la M2L contre les menaces externes et internes.
-                        <br>Tâches principales :
-                        <br>Mise en place de politiques de sécurité (pare-feu, antivirus, anti-malware).
-                        <br>Configuration des règles de filtrage et de contrôle d'accès.
-                        <br>Sensibilisation des utilisateurs aux bonnes pratiques de sécurité.
-                        <br>Audit de sécurité pour identifier et corriger les vulnérabilités.
-                </p>
+            <h2>Parcours</h2>
+            <div class="stage-nav">
+                <button onclick="showSubSection('reseaux')">Réseaux</button>
+                <button onclick="showSubSection('specialite')">Spécialité</button>
+                <button onclick="showSubSection('missions')">Missions</button>
             </div>
+
+            <!-- Sous-section Réseaux -->
+            <div id="reseaux" class="sub-section active">
+                <h2>Réseaux</h2>
                 <p>
-                    <h2> 3 : Sécurité informatique </h2>
-                        Objectif : Protéger les données et les systèmes de la M2L contre les menaces externes et internes.
-
-                        <br>Tâches principales :
-
-                        <br>Mise en place de politiques de sécurité (pare-feu, antivirus, anti-malware).
-
-                        <br>Configuration des règles de filtrage et de contrôle d'accès.
-
-                        <br>Sensibilisation des utilisateurs aux bonnes pratiques de sécurité.
-
-                        <br>Audit de sécurité pour identifier et corriger les vulnérabilités.
-
-                        Mission 4 : Mise en place d'un DHCP relais et configuration avec Active Directory
-                        Objectif : Simplifier la gestion des adresses IP sur le réseau de la M2L en déployant un serveur DHCP centralisé avec relais, intégré à Active Directory.
-
-                        Tâches principales :
-
-                        Installation du rôle DHCP sur un serveur Windows :
-
-                        Ajouter le rôle "Serveur DHCP" via le Gestionnaire de serveur.
-
-                        Configurer les étendues DHCP (plages d'adresses IP, durée de bail, etc.).
-
-                        Configuration du DHCP relais :
-
-                        Sur les routeurs ou switchs compatibles, activer le relais DHCP (option IP Helper).
-
-                        Spécifier l'adresse IP du serveur DHCP centralisé.
-
-                        Intégration avec Active Directory :
-
-                        Autoriser le serveur DHCP dans Active Directory pour éviter les conflits.
-
-                        Configurer les options DHCP (passerelle par défaut, serveurs DNS, etc.) en fonction des besoins des ligues.
-
-                        Tests et validation :
-
-                        Vérifier que les clients réseau obtiennent bien une adresse IP via le serveur DHCP.
-
-                        S'assurer que les options DHCP (comme les serveurs DNS) sont correctement appliquées.
-
-                        Documentation :
-
-                        Rédiger un guide de configuration pour le DHCP relais et son intégration avec Active Directory.
-
-                        Noter les éventuels problèmes rencontrés et leurs solutions.
-            </p>
-                <h2>: Acquérir les fondamentaux en infrastructure, systèmes et réseaux.</h2>   
-            <p>
-
-                    Activités principales :
-
-                    Apprentissage théorique :
-
-                    Comprendre les concepts de base des réseaux (TCP/IP, VLAN, routage, etc.).
-
-                    Découvrir les systèmes d'exploitation (Windows Server, Linux).
-
-                    Initiation à la sécurité informatique (pare-feu, antivirus, politiques de sécurité).
-
-                    Travaux pratiques :
-
-                    Configuration de réseaux locaux (LAN) avec des switchs et routeurs.
-
-                    Installation et configuration de serveurs (Windows Server, Linux).
-
-                    Mise en place de services de base (DNS, DHCP, partage de fichiers).
-
-                    Projets :
-
-                    Réalisation d'un petit réseau virtuel (simulation avec des outils comme Packet Tracer ou GNS3).
-
-                    Documentation des configurations et des procédures.
-
-                    2. Approfondissement des compétences
-                    Objectif : Approfondir les connaissances techniques et commencer à travailler sur des cas concrets.
-
-                    Activités principales :
-
-                    Administration des systèmes :
-
-                    Gestion des utilisateurs et des groupes avec Active Directory.
-
-                    Configuration de stratégies de groupe (GPO) pour centraliser la gestion des postes clients.
-
-                    Sécurité des réseaux :
-
-                    Mise en place de pare-feu et de règles de filtrage.
-
-                    Configuration de VPN pour un accès sécurisé à distance.
-
-                    Maintenance et dépannage :
-
-                    Diagnostic et résolution des problèmes réseau et système.
-
-                    Utilisation d'outils de monitoring (Nagios, PRTG, etc.).
-
-                    Projets :
-
-                    Simulation d'un environnement réseau pour une petite entreprise.
-
-                    Rédaction de rapports techniques et de guides d'utilisation.
-
-                    Deuxième année de BTS SIO (Option SISR)
-                    1. Professionnalisation et spécialisation
-                    Objectif : Appliquer les compétences acquises dans un contexte professionnel et se spécialiser.
-
-                    Activités principales :
-
-                    Gestion avancée des réseaux :
-
-                    Configuration de réseaux étendus (WAN) avec des protocoles comme BGP ou OSPF.
-
-                    Mise en place de solutions de haute disponibilité (load balancing, failover).
-
-                    Virtualisation et cloud :
-
-                    Installation et gestion de machines virtuelles (VMware, Hyper-V).
-
-                    Découverte des services cloud (Azure, AWS) pour l'hébergement et la gestion des ressources.
-
-                    Sécurité renforcée :
-
-                    Mise en place de systèmes de détection d'intrusion (IDS) et de prévention (IPS).
-
-                    Audit de sécurité et mise en conformité (RGPD, normes ISO).
-
-                    Projets :
-
-                    Conception et déploiement d'une infrastructure réseau pour une organisation fictive ou réelle.
-
-                    Participation à des challenges ou hackathons pour tester ses compétences en sécurité.
-
-                    2. Stage en entreprise et projet de synthèse
-                    Objectif : Mettre en pratique les compétences dans un environnement professionnel et réaliser un projet de synthèse.
-
-                    Activités principales :
-
-                    Stage en entreprise (8 à 12 semaines) :
-
-                    Participation à la gestion de l'infrastructure informatique d'une entreprise.
-
-                    Résolution de problèmes techniques réels (réseau, systèmes, sécurité).
-
-                    Collaboration avec les équipes IT et rédaction d'un rapport de stage.
-
-                    Projet de synthèse :
-
-                    Réalisation d'un projet concret en lien avec l'option SISR (exemple : déploiement d'un réseau sécurisé avec Active Directory, mise en place d'un système de sauvegarde automatisé, etc.).
-
-                    Présentation du projet devant un jury (défense orale et soutenance).
-
-                    Veille technologique :
-
-                    Réalisation d'une veille sur les dernières tendances en infrastructure et sécurité.
-
-                    Rédaction d'un dossier de veille technologique.
-
-                    Compétences acquises à la fin du BTS SIO (Option SISR)
-                    Techniques :
-
-                    Maîtrise des réseaux (LAN, WAN, VLAN, routage, DHCP, DNS, etc.).
-
-                    Administration des systèmes (Windows Server, Linux, Active Directory, GPO).
-
-                    Sécurité informatique (pare-feu, VPN, IDS/IPS, audits de sécurité).
-
-                    Virtualisation et cloud (VMware, Hyper-V, Azure, AWS).
-
-                    Transversales :
-
-                    Gestion de projet et documentation technique.
-
-                    Résolution de problèmes et dépannage.
-
-                    Communication et travail en équipe.
-                </p>
-            
-
-            <!-- Exemple d'image à gauche du texte -->
-            <div class="image-left">
-                <img src="chemin/vers/image1.jpg" alt="Image 1">
-                <p>
-                    Ceci est un exemple de texte avec une image à gauche. Vous pouvez ajouter du contenu ici pour expliquer l'image ou fournir des informations supplémentaires.
+                    <strong>Objectif :</strong> Acquérir une compréhension approfondie des concepts de base et avancés des réseaux informatiques.
+                    <br><strong>Description :</strong>
+                    Cette section couvre les fondamentaux des réseaux, y compris les différences entre le Wi-Fi et les réseaux filaires, les types de stockage de données, et les protocoles de communication essentiels.
+                    <br><strong>Compétences acquises :</strong>
+                    <ul>
+                        <li><strong>Différenciation entre Wi-Fi et réseaux filaires :</strong> Comprendre les avantages et les inconvénients de chaque type de connexion, ainsi que leurs cas d'utilisation.</li>
+                        <li><strong>Types de stockage :</strong> Exploration des solutions de stockage telles que les disques durs (HDD), les disques SSD, et le stockage en cloud.</li>
+                        <li><strong>Protocoles de messagerie :</strong> Maîtrise des protocoles POP, IMAP et SMTP pour la gestion des emails.</li>
+                        <li><strong>Mission 2ème année M2L :</strong> Participation à des projets concrets pour la mise en œuvre de serveurs, la configuration de la commutation et du routage, ainsi que la mise en place de relais DHCP.</li>
+                    </ul>
                 </p>
             </div>
 
-            <!-- Exemple d'image à droite du texte -->
-            <div class="image-right">
-                <img src="chemin/vers/image2.jpg" alt="Image 2">
+            <!-- Sous-section Spécialité -->
+            <div id="specialite" class="sub-section">
+                <h2>Spécialité</h2>
                 <p>
-                    Ceci est un exemple de texte avec une image à droite. Vous pouvez ajouter du contenu ici pour expliquer l'image ou fournir des informations supplémentaires.
+                    <strong>Objectif :</strong> Approfondir les connaissances techniques dans des domaines spécialisés des réseaux et des systèmes.
+                    <br><strong>Description :</strong>
+                    Cette section se concentre sur des concepts avancés tels que l'agrégation de liens, IPv6, le routage dynamique, et les solutions de haute disponibilité.
+                    <br><strong>Compétences acquises :</strong>
+                    <ul>
+                        <li><strong>Agrégation de liens :</strong> Combinaison de plusieurs connexions réseau pour augmenter la bande passante et la redondance.</li>
+                        <li><strong>IPv6 :</strong> Comprendre et configurer le protocole IPv6 pour répondre aux besoins croissants en adresses IP.</li>
+                        <li><strong>Routage dynamique :</strong> Utilisation de protocoles comme OSPF et BGP pour optimiser le trafic réseau.</li>
+                        <li><strong>Spanning Tree :</strong> Prévention des boucles réseau dans les topologies complexes.</li>
+                        <li><strong>Haute disponibilité :</strong> Mise en place de solutions pour assurer la continuité des services.</li>
+                        <li><strong>NAT, PAT, NAS :</strong> Configuration des technologies de traduction d'adresses réseau et de stockage en réseau.</li>
+                    </ul>
                 </p>
             </div>
 
-            <!-- Exemple de deux images côte à côte -->
-            <div class="two-images">
-                <img src="chemin/vers/image3.jpg" alt="Image 3">
-                <img src="chemin/vers/image4.jpg" alt="Image 4">
+            <!-- Sous-section Missions -->
+            <div id="missions" class="sub-section">
+                <h2>Sécurité informatique</h2>
+                <p>
+                    <strong>Objectif :</strong> Protéger les données et les systèmes de la M2L contre les menaces externes et internes.
+                    <br><strong>Description :</strong>
+                    Cette section aborde les aspects clés de la sécurité informatique, y compris la mise en place de politiques de sécurité, la configuration des règles de filtrage, et la sensibilisation des utilisateurs.
+                    <br><strong>Compétences acquises :</strong>
+                    <ul>
+                        <li><strong>Politiques de sécurité :</strong> Déploiement de pare-feu, antivirus, et anti-malware pour protéger les systèmes.</li>
+                        <li><strong>Règles de filtrage :</strong> Configuration des règles de contrôle d'accès pour limiter les accès non autorisés.</li>
+                        <li><strong>Sensibilisation des utilisateurs :</strong> Formation des utilisateurs aux bonnes pratiques de sécurité pour réduire les risques.</li>
+                        <li><strong>Audit de sécurité :</strong> Identification et correction des vulnérabilités pour renforcer la sécurité globale.</li>
+                    </ul>
+                </p>
+
+                <h3>Mission 4 : Mise en place d'un DHCP relais et configuration avec Active Directory</h3>
+                <p>
+                    <strong>Objectif :</strong> Simplifier la gestion des adresses IP sur le réseau de la M2L en déployant un serveur DHCP centralisé avec relais, intégré à Active Directory.
+                    <br><strong>Tâches principales :</strong>
+                    <ul>
+                        <li><strong>Installation du rôle DHCP :</strong> Ajout du rôle "Serveur DHCP" via le Gestionnaire de serveur.</li>
+                        <li><strong>Configuration des étendues DHCP :</strong> Définition des plages d'adresses IP, durée de bail, etc.</li>
+                        <li><strong>Activation du relais DHCP :</strong> Utilisation de l'option IP Helper sur les routeurs ou switchs compatibles.</li>
+                        <li><strong>Intégration avec Active Directory :</strong> Autorisation du serveur DHCP dans Active Directory pour éviter les conflits.</li>
+                        <li><strong>Tests et validation :</strong> Vérification que les clients réseau obtiennent bien une adresse IP via le serveur DHCP.</li>
+                        <li><strong>Documentation :</strong> Rédaction d'un guide de configuration pour le DHCP relais et son intégration avec Active Directory.</li>
+                    </ul>
+                </p>
+            </div>
+        </section>
+
+        <!-- Section Certifications -->
+        <section id="certification" class="section">
+            <h2>Certifications</h2>
+            <div class="certifications-container">
+                <!-- Certification 1 -->
+                <div class="certification-card">
+                    <img src="https://via.placeholder.com/150" alt="Certification 1">
+                    <h3>Google IT Support Professional Certificate</h3>
+                    <p>
+                        <strong>Description :</strong> Cette certification, offerte par Google via Coursera, couvre les bases du support informatique, y compris la résolution de problèmes, les systèmes d'exploitation, la gestion des réseaux et la sécurité informatique.
+                        <br><strong>Compétences acquises :</strong>
+                        <ul>
+                            <li>Support technique et dépannage.</li>
+                            <li>Gestion des systèmes d'exploitation (Windows, Linux).</li>
+                            <li>Concepts de base des réseaux et de la cybersécurité.</li>
+                        </ul>
+                        <a href="https://www.coursera.org/professional-certificates/google-it-support" target="_blank">Obtenir la certification</a>
+                    </p>
+                </div>
+
+                <!-- Certification 2 -->
+                <div class="certification-card">
+                    <img src="https://via.placeholder.com/150" alt="Certification 2">
+                    <h3>Microsoft Learn: Azure Fundamentals</h3>
+                    <p>
+                        <strong>Description :</strong> Cette certification gratuite de Microsoft couvre les concepts de base du cloud computing avec Azure, y compris les services cloud, la sécurité, la gestion des coûts et la conformité.
+                        <br><strong>Compétences acquises :</strong>
+                        <ul>
+                            <li>Concepts de base du cloud computing.</li>
+                            <li>Services Azure (stockage, calcul, réseau).</li>
+                            <li>Sécurité et conformité dans le cloud.</li>
+                        </ul>
+                        <a href="https://docs.microsoft.com/en-us/learn/certifications/azure-fundamentals" target="_blank">Obtenir la certification</a>
+                    </p>
+                </div>
+
+                <!-- Certification 3 -->
+                <div class="certification-card">
+                    <img src="https://via.placeholder.com/150" alt="Certification 3">
+                    <h3>Introduction to Cybersecurity par Cisco</h3>
+                    <p>
+                        <strong>Description :</strong> Cette certification gratuite de Cisco Networking Academy introduit les concepts de base de la cybersécurité, y compris les menaces, les vulnérabilités et les bonnes pratiques pour protéger les systèmes.
+                        <br><strong>Compétences acquises :</strong>
+                        <ul>
+                            <li>Concepts de base de la cybersécurité.</li>
+                            <li>Identification des menaces et vulnérabilités.</li>
+                            <li>Bonnes pratiques de sécurité.</li>
+                        </ul>
+                        <a href="https://www.netacad.com/courses/cybersecurity/introduction-cybersecurity" target="_blank">Obtenir la certification</a>
+                    </p>
+                </div>
+
+                <!-- Certification 4 -->
+                <div class="certification-card">
+                    <img src="https://via.placeholder.com/150" alt="Certification 4">
+                    <h3>Python for Everybody par l'Université du Michigan</h3>
+                    <p>
+                        <strong>Description :</strong> Cette certification gratuite, disponible sur Coursera, enseigne les bases de la programmation en Python, y compris les structures de données, les API et la manipulation de bases de données.
+                        <br><strong>Compétences acquises :</strong>
+                        <ul>
+                            <li>Programmation en Python.</li>
+                            <li>Manipulation de données et API.</li>
+                            <li>Concepts de base de la programmation.</li>
+                        </ul>
+                        <a href="https://www.coursera.org/specializations/python" target="_blank">Obtenir la certification</a>
+                    </p>
+                </div>
             </div>
         </section>
 
