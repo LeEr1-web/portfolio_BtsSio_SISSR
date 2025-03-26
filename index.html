@@ -85,38 +85,13 @@
             font-size: 32px;
             font-weight: 600;
             margin-bottom: 20px;
-            color: #16213e;
+            color: #0044ff;
             text-align: center;
-        }
-
-        /* Conteneurs flexibles */
-        .flex-container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 20px;
         }
 
         .text-container {
             max-width: 50%;
             text-align: justify;
-        }
-
-        .image-container {
-            max-width: 40%;
-        }
-
-        .image-container img,
-        .image-container video {
-            width: 100%;
-            border-radius: 10px;
-            transition: transform 0.3s ease;
-        }
-
-        .image-container img:hover,
-        .image-container video:hover {
-            transform: scale(1.05);
         }
 
         /* Figures et légendes */
@@ -127,6 +102,9 @@
 
         figure img,
         figure video {
+            width: 350px; /* Largeur fixe */
+            height: 350px;
+            object-fit: contain;
             max-width: 80%;
             height: auto;
             border-radius: 10px;
@@ -152,8 +130,11 @@
         }
 
         .image-left img, .image-right img {
-            max-width: 45%;
+            width: 500px; /* Largeur fixe */
+            height: 500px; /* Hauteur fixe */
+            object-fit: contain; /* Conserve le ratio de l'image sans la rogner */
             border-radius: 10px;
+            background-color: #ffffff; /* Couleur de fond pour l'espace vide (optionnel) */
         }
 
         .image-left {
@@ -163,7 +144,6 @@
         .image-right {
             flex-direction: row-reverse;
         }
-
         /* Style pour deux images côte à côte */
         .two-images {
             display: flex;
@@ -229,6 +209,139 @@
             padding-left: 40px;
         }
 
+        /* Style général */
+        .section {
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+        }
+        
+        .certifications-intro {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #34495e;
+            line-height: 1.6;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Grille des certifications */
+        .certifications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        /* Carte de certification */
+        .certification-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            border: 1px solid #e0e0e0;
+        }
+        
+        .certification-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .highlight-card {
+            border: 2px solid #3498db;
+        }
+        
+        /* En-tête de carte */
+        .certification-header {
+            padding: 1.5rem 1.5rem 0;
+            text-align: center;
+        }
+        
+        .certification-image-container {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            border-radius: 50%;
+            padding: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .certification-image {
+            max-width: 80px;
+            max-height: 80px;
+            object-fit: contain;
+        }
+        
+        .certification-title {
+            color: #2c3e50;
+            margin: 0.5rem 0;
+            font-size: 1.3rem;
+        }
+        
+        /* Corps de carte */
+        .certification-body {
+            padding: 0 1.5rem 1.5rem;
+        }
+        
+        .certification-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+        
+        .badge {
+            background: #3498db;
+            color: white;
+            padding: 0.3rem 0.6rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+        
+        .issuer {
+            color: #7f8c8d;
+        }
+        
+        .certification-content {
+            color: #34495e;
+            line-height: 1.6;
+        }
+        
+        .skills-list {
+            padding-left: 1.2rem;
+            margin: 0.8rem 0;
+        }
+        
+        .skills-list li {
+            margin-bottom: 0.4rem;
+            font-size: 0.95rem;
+        }
+        
+        .certification-link {
+            display: inline-block;
+            margin-top: 1rem;
+            color: #3498db;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+    
+    .certification-link:hover {
+        color: #2980b9;
+        text-decoration: underline;
+    }
         /* Animation pour les sections */
         @keyframes fadeIn {
             from {
@@ -247,8 +360,8 @@
 
         /* Responsive design */
         @media (max-width: 768px) {
-            .flex-container {
-                flex-direction: column;
+            .certifications-grid {
+            grid-template-columns: 1fr;
             }
 
             .text-container,
@@ -284,7 +397,7 @@
     <header>
         <h1>Mon Portfolio</h1>
         <nav>
-            <button onclick="showSection('presentation')">Introduction</button>
+            <button onclick="showSection('presentation')">A propos</button>
             <button onclick="showSection('parcours')">Parcours</button>
             <button onclick="showSection('stage')">Expériences professionnelles</button>
             <button onclick="showSection('certification')">Certifications</button>
@@ -296,24 +409,25 @@
     <main>
         <!-- Section Introduction -->
         <section id="presentation" class="section active">
+            <div class="fig_img">
+                <figure>
+                <img src="images/btssio.png" alt="Image 1">
+                </figure>
+            </div>
             <h2>Introduction</h2>
             <div class="image-left">
                 <img src="images/parcours.jpg" alt="Image 1">
                 <p>
                     Passionné par les sciences et les technologies depuis mon plus jeune âge, 
                     mon parcours académique et professionnel reflète une volonté constante d’explorer et de maîtriser les domaines liés à l’informatique et aux systèmes d’information. 
-                    <br>Après une seconde générale où j’ai choisi les options Sciences de la Vie et de la Terre (SVT) et Numérique et Sciences Informatiques (NSI), 
-                </p>
-            </div>
-            <div class="image-right">
-                <img src="images/btssio.png" alt="Image 1">
-                <p>
-                    j’ai rapidement orienté mes études vers le Brevet de Technicien Supérieur en Services Informatiques aux Organisations (BTS SIO), 
-                    en optant pour la spécialité Solutions d’Infrastructure, Systèmes et Réseaux (SISR).
+                    <br>Après une seconde générale où j’ai choisi les options Sciences de la Vie et de la Terre (SVT) et Numérique et Sciences Informatiques (NSI).
+                    <br>J’ai rapidement orienté mes études vers le Brevet de Technicien Supérieur en Services Informatiques aux Organisations (BTS SIO), 
+                    au sain de l'AMEP. 
+                    <br>Au cours de la première année j'ai pris le choix de porter une "double casquette" en optant pour la spécialité Solutions d’Infrastructure, Systèmes et Réseaux (SISR).
                     <br>Ce choix s’est avéré être une étape déterminante dans mon développement personnel et professionnel. 
                     <br>Grâce à cette formation, j’ai acquis des compétences techniques solides en administration des systèmes et des réseaux, 
-                    en cybersécurité, et en gestion des infrastructures informatiques. Parallèlement, 
-                    <br>j’ai développé des qualités essentielles telles que la rigueur, la résolution de problèmes complexes et la capacité à travailler en équipe.
+                    en cybersécurité, et en gestion des infrastructures informatiques.
+                    <br>Parallèlement, j’ai développé des qualités essentielles telles que la rigueur, la résolution de problèmes complexes et la capacité à travailler en équipe.
                 </p>
             </div>
         </section>
@@ -322,51 +436,61 @@
         <section id="parcours" class="section">
             <h2>Parcours</h2>
             <div class="stage-nav">
-                <button onclick="showSubSection('reseaux')">Réseaux</button>
+                <button onclick="showSubSection('tableau')">Tableau</button>
                 <button onclick="showSubSection('specialite')">Spécialité</button>
-                <button onclick="showSubSection('missions')">Missions</button>
+                <button onclick="showSubSection('ap')">AP</button>
+            </div>
+
+            <div id="tableau" class="sub-section active">
+                <h2>Spécialité</h2>
+                <img src="LABICHE_ERWAN_Tableau_de_synthèse.pdf">
             </div>
 
             <!-- Sous-section Réseaux -->
-            <div id="reseaux" class="sub-section active">
-                <h2>Réseaux</h2>
-                <p>
-                    <strong>Objectif :</strong> Acquérir une compréhension approfondie des concepts de base et avancés des réseaux informatiques.
-                    <br><strong>Description :</strong>
-                    Cette section couvre les fondamentaux des réseaux, y compris les différences entre le Wi-Fi et les réseaux filaires, les types de stockage de données, et les protocoles de communication essentiels.
-                    <br><strong>Compétences acquises :</strong>
-                    <ul>
-                        <li><strong>Différenciation entre Wi-Fi et réseaux filaires :</strong> Comprendre les avantages et les inconvénients de chaque type de connexion, ainsi que leurs cas d'utilisation.</li>
-                        <li><strong>Types de stockage :</strong> Exploration des solutions de stockage telles que les disques durs (HDD), les disques SSD, et le stockage en cloud.</li>
-                        <li><strong>Protocoles de messagerie :</strong> Maîtrise des protocoles POP, IMAP et SMTP pour la gestion des emails.</li>
-                        <li><strong>Mission 2ème année M2L :</strong> Participation à des projets concrets pour la mise en œuvre de serveurs, la configuration de la commutation et du routage, ainsi que la mise en place de relais DHCP.</li>
-                    </ul>
-                </p>
-            </div>
-
-            <!-- Sous-section Spécialité -->
             <div id="specialite" class="sub-section">
-                <h2>Spécialité</h2>
+                <h2>Parcours en BTS SIO – Première et Deuxième Année</h2>
                 <p>
-                    <strong>Objectif :</strong> Approfondir les connaissances techniques dans des domaines spécialisés des réseaux et des systèmes.
-                    <br><strong>Description :</strong>
-                    Cette section se concentre sur des concepts avancés tels que l'agrégation de liens, IPv6, le routage dynamique, et les solutions de haute disponibilité.
-                    <br><strong>Compétences acquises :</strong>
-                    <ul>
-                        <li><strong>Agrégation de liens :</strong> Combinaison de plusieurs connexions réseau pour augmenter la bande passante et la redondance.</li>
-                        <li><strong>IPv6 :</strong> Comprendre et configurer le protocole IPv6 pour répondre aux besoins croissants en adresses IP.</li>
-                        <li><strong>Routage dynamique :</strong> Utilisation de protocoles comme OSPF et BGP pour optimiser le trafic réseau.</li>
-                        <li><strong>Spanning Tree :</strong> Prévention des boucles réseau dans les topologies complexes.</li>
-                        <li><strong>Haute disponibilité :</strong> Mise en place de solutions pour assurer la continuité des services.</li>
-                        <li><strong>NAT, PAT, NAS :</strong> Configuration des technologies de traduction d'adresses réseau et de stockage en réseau.</li>
-                    </ul>
+                    <strong>Objectif :</strong> Acquérir les bases fondamentales en développement logiciel, administration système et réseaux.  
+                    <br><strong>Description :</strong>  
+                    La première année de BTS SIO m'a permis de découvrir les deux spécialités (SLAM et SISR) et de consolider mes compétences en programmation, bases de données, et gestion d'infrastructure.  
+                    <br><strong>Activités et compétences acquises :</strong>  
+                    <ul>  
+                        <li><strong>Programmation (Python, Java) :</strong> Création d'applications console, manipulation des structures de données, et initiation à la POO.</li>  
+                        <li><strong>Bases de données (SQL) :</strong> Conception de schémas relationnels, requêtes CRUD, et utilisation de systèmes comme MySQL ou PostgreSQL.</li>  
+                        <li><strong>Réseaux (CCNA 1) :</strong> Apprentissage des topologies réseau, modèle OSI/TCP-IP, et configuration basique de switchs/routiers.</li>  
+                        <li><strong>Systèmes (Windows Server, Linux) :</strong> Gestion des utilisateurs, permissions, et services réseau (DHCP, DNS).</li>  
+                    </ul>  
+                </p>  
+
+                <p>  
+                    <strong>Objectif :</strong> Approfondir la spécialité SISR avec des projets concrets et des technologies avancées.  
+                    <br><strong>Description :</strong>  
+                    La deuxième année a été axée sur la mise en pratique via des simulations d'environnements professionnels, notamment avec des projets comme la refonte du réseau de la M2L (Maison des Ligues de Lorraine).  
+                    <br><strong>Activités et compétences acquises :</strong>  
+                    <ul>  
+                        <li><strong>Virtualisation (VMware, Proxmox) :</strong> Déploiement de machines virtuelles et gestion de clusters.</li>  
+                        <li><strong>Sécurité informatique :</strong> Mise en place de pare-feux (pfSense), VPN, et détection d'intrusions.</li>  
+                        <li><strong>Routage dynamique (OSPF) :</strong> Configuration de réseaux multi-sites avec redondance.</li>  
+                        <li><strong>Scripting (Bash, PowerShell) :</strong> Automatisation de tâches système (sauvegardes, monitoring).</li>  
+                        <li><strong>Projet M2L :</strong>  
+                            <ul>  
+                                <li>Déploiement d'un annuaire LDAP (OpenLDAP).</li>  
+                                <li>Migration IPv4 vers IPv6.</li>  
+                                <li>Mise en place d'un serveur de fichiers haute disponibilité (NAS).</li>  
+                            </ul>  
+                        </li>  
+                    </ul>  
+                </p>  
+
+                <p>  
+                    <strong>Bilan :</strong> Ce parcours m'a permis de développer une double compétence en <strong>réseaux</strong> et <strong>systèmes</strong>, tout en renforçant mon autonomie et ma capacité à travailler en équipe (méthodologie Agile, gestion de projet). Je suis désormais capable de concevoir, sécuriser et dépanner une infrastructure répondant aux besoins des entreprises.  
                 </p>
             </div>
 
             <!-- Sous-section Missions -->
-            <div id="missions" class="sub-section">
+            <div id="ap" class="sub-section">
                 <h2>Sécurité informatique</h2>
-                <p>
+                <p> Au sein de mas speciliter 
                     <strong>Objectif :</strong> Protéger les données et les systèmes de la M2L contre les menaces externes et internes.
                     <br><strong>Description :</strong>
                     Cette section aborde les aspects clés de la sécurité informatique, y compris la mise en place de politiques de sécurité, la configuration des règles de filtrage, et la sensibilisation des utilisateurs.
@@ -397,70 +521,124 @@
 
         <!-- Section Certifications -->
         <section id="certification" class="section">
-            <h2>Certifications</h2>
-            <div class="certifications-container">
-                <!-- Certification 1 -->
-                <div class="certification-card">
-                    <img src="https://via.placeholder.com/150" alt="Certification 1">
-                    <h3>Google IT Support Professional Certificate</h3>
-                    <p>
-                        <strong>Description :</strong> Cette certification, offerte par Google via Coursera, couvre les bases du support informatique, y compris la résolution de problèmes, les systèmes d'exploitation, la gestion des réseaux et la sécurité informatique.
-                        <br><strong>Compétences acquises :</strong>
-                        <ul>
-                            <li>Support technique et dépannage.</li>
-                            <li>Gestion des systèmes d'exploitation (Windows, Linux).</li>
-                            <li>Concepts de base des réseaux et de la cybersécurité.</li>
-                        </ul>
-                        <a href="https://www.coursera.org/professional-certificates/google-it-support" target="_blank">Obtenir la certification</a>
-                    </p>
+            <h2 class="section-title">📜 Mes Certifications</h2>
+            
+            <div class="certifications-intro">
+                <p>En BTS SIO SISR, j'ai bossé sur plusieurs certifs importantes pour valider mes compétences pro. Voici ce que j'ai pu obtenir :</p>
+            </div>
+            
+            <div class="certifications-grid">
+                <!-- Certification PIX -->
+                <div class="certification-card highlight-card">
+                    <div class="certification-header">
+                        <div class="certification-image-container">
+                            <img src="images/pix.png" alt="Certification PIX" class="certification-image">
+                        </div>
+                        <h3 class="certification-title">Certification PIX</h3>
+                    </div>
+                    <div class="certification-body">
+                        <p class="certification-meta">
+                            <span class="badge">Niveau 5/8</span>
+                            <span class="issuer">Ministère de l'Éducation</span>
+                            <span class="date">2023</span>
+                        </p>
+                        <div class="certification-content">
+                            <p><strong>Pourquoi ?</strong> Obligatoire pour valider le BTS</p>
+                            <p><strong>Ce que j'ai appris :</strong></p>
+                            <ul class="skills-list">
+                                <li>🔍 Recherche info avancée</li>
+                                <li>📧 Com' pro en ligne</li>
+                                <li>🔐 Sécurité des données</li>
+                            </ul>
+                            <p><strong>+ :</strong> Valable à vie, reconnue par l'État</p>
+                            <a href="https://pix.fr" target="_blank" class="certification-link">Voir le référentiel →</a>
+                        </div>
+                    </div>
                 </div>
 
-                <!-- Certification 2 -->
-                <div class="certification-card">
-                    <img src="https://via.placeholder.com/150" alt="Certification 2">
-                    <h3>Microsoft Learn: Azure Fundamentals</h3>
-                    <p>
-                        <strong>Description :</strong> Cette certification gratuite de Microsoft couvre les concepts de base du cloud computing avec Azure, y compris les services cloud, la sécurité, la gestion des coûts et la conformité.
-                        <br><strong>Compétences acquises :</strong>
-                        <ul>
-                            <li>Concepts de base du cloud computing.</li>
-                            <li>Services Azure (stockage, calcul, réseau).</li>
-                            <li>Sécurité et conformité dans le cloud.</li>
-                        </ul>
-                        <a href="https://docs.microsoft.com/en-us/learn/certifications/azure-fundamentals" target="_blank">Obtenir la certification</a>
-                    </p>
+                <!-- Certification SecNumedu -->
+                <div class="certification-card highlight-card">
+                    <div class="certification-header">
+                        <div class="certification-image-container">
+                            <img src="images/secnum.png" alt="Certification SecNumedu" class="certification-image">
+                        </div>
+                        <h3 class="certification-title">SecNumedu</h3>
+                    </div>
+                    <div class="certification-body">
+                        <p class="certification-meta">
+                            <span class="badge">ANSSI</span>
+                            <span class="issuer">Niveau 1</span>
+                            <span class="date">2024</span>
+                        </p>
+                        <div class="certification-content">
+                            <p><strong>Formation :</strong> 1 journée intensive</p>
+                            <p><strong>Points clés :</strong></p>
+                            <ul class="skills-list">
+                                <li>🛡️ Protection contre les attaques</li>
+                                <li>📝 Conformité RGPD</li>
+                                <li>💡 Culture sécurité</li>
+                            </ul>
+                            <p><strong>+ :</strong> Un gros plus pour le CV dans la cybersécurité</p>
+                            <a href="https://www.ssi.gouv.fr" target="_blank" class="certification-link">Site ANSSI →</a>
+                        </div>
+                    </div>
                 </div>
 
-                <!-- Certification 3 -->
+                <!-- Certification Cisco -->
                 <div class="certification-card">
-                    <img src="https://via.placeholder.com/150" alt="Certification 3">
-                    <h3>Introduction to Cybersecurity par Cisco</h3>
-                    <p>
-                        <strong>Description :</strong> Cette certification gratuite de Cisco Networking Academy introduit les concepts de base de la cybersécurité, y compris les menaces, les vulnérabilités et les bonnes pratiques pour protéger les systèmes.
-                        <br><strong>Compétences acquises :</strong>
-                        <ul>
-                            <li>Concepts de base de la cybersécurité.</li>
-                            <li>Identification des menaces et vulnérabilités.</li>
-                            <li>Bonnes pratiques de sécurité.</li>
-                        </ul>
-                        <a href="https://www.netacad.com/courses/cybersecurity/introduction-cybersecurity" target="_blank">Obtenir la certification</a>
-                    </p>
+                    <div class="certification-header">
+                        <div class="certification-image-container">
+                            <img src="images/cisco.png" alt="Cisco Networking Academy" class="certification-image">
+                        </div>
+                        <h3 class="certification-title">Cisco CyberOps</h3>
+                    </div>
+                    <div class="certification-body">
+                        <p class="certification-meta">
+                            <span class="badge">CCNA</span>
+                            <span class="issuer">Cisco</span>
+                            <span class="date">2024</span>
+                        </p>
+                        <div class="certification-content">
+                            <p><strong>Durée :</strong> 30h en ligne</p>
+                            <p><strong>Acquis techniques :</strong></p>
+                            <ul class="skills-list">
+                                <li>🕵️‍♂️ Analyse de logs</li>
+                                <li>🌐 Sécurité réseau</li>
+                                <li>🔑 Principes cryptographiques</li>
+                            </ul>
+                            <p><strong>Projet :</strong> Mise en place d'un SIEM basique</p>
+                            <a href="https://www.netacad.com" target="_blank" class="certification-link">Voir le programme →</a>
+                        </div>
+                    </div>
                 </div>
 
-                <!-- Certification 4 -->
+                <!-- Certification Coursera Cybersecurity -->
                 <div class="certification-card">
-                    <img src="https://via.placeholder.com/150" alt="Certification 4">
-                    <h3>Python for Everybody par l'Université du Michigan</h3>
-                    <p>
-                        <strong>Description :</strong> Cette certification gratuite, disponible sur Coursera, enseigne les bases de la programmation en Python, y compris les structures de données, les API et la manipulation de bases de données.
-                        <br><strong>Compétences acquises :</strong>
-                        <ul>
-                            <li>Programmation en Python.</li>
-                            <li>Manipulation de données et API.</li>
-                            <li>Concepts de base de la programmation.</li>
-                        </ul>
-                        <a href="https://www.coursera.org/specializations/python" target="_blank">Obtenir la certification</a>
-                    </p>
+                    <div class="certification-header">
+                        <div class="certification-image-container">
+                            <img src="images/coursera.png" alt="Coursera Cybersecurity" class="certification-image">
+                        </div>
+                        <h3 class="certification-title">Cybersecurity Fundamentals</h3>
+                    </div>
+                    <div class="certification-body">
+                        <p class="certification-meta">
+                            <span class="titre">La cybersécurité pour tous</span>
+                            <span class="badge">IBM</span>
+                            <span class="issuer">Coursera</span>
+                            <span class="date">2024</span>
+                        </p>
+                        <div class="certification-content">
+                            <p><strong>Durée :</strong> 40h en ligne</p>
+                            <p><strong>Points forts :</strong></p>
+                            <ul class="skills-list">
+                                <li>🛡️ Ethical Hacking basics</li>
+                                <li>🔍 Analyse de vulnérabilités</li>
+                                <li>🚨 Réponse aux incidents</li>
+                            </ul>
+                            <p><strong>Projet :</strong> Audit de sécurité d'une app web</p>
+                            <a href="https://www.coursera.org" target="_blank" class="certification-link">Voir le cours →</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -470,11 +648,13 @@
             <h2>Veille Informatique</h2>
             <div class="content">
                 <p>
-                    Ma veille technologique et mes outils
                     Pour effectuer ma veille technologique, j’utilise « Google Alertes « , qui me crée des alertes toutes les semaines.
                     Celui-ci me permet d’être toujours au courant de toutes les actualités que je souhaite.
+                    <br>
                     J’ai ajouté à celui-ci, différentes sources telles que : ANSSI, Le Monde Informatique, …
                     Pour ma veille technologique j'ai choisi La Blockchain
+                    <br>
+                    je consulte regulierement le site de fandroid 
                 </p>
             </div>
         </section>
@@ -483,97 +663,111 @@
         <section id="stage" class="section">
             <h2>Stage</h2>
             <div class="stage-nav">
-                <button onclick="showSubSection('reseaux')">Réseaux</button>
-                <button onclick="showSubSection('videosurveillance')">Vidéosurveillance</button>
-                <button onclick="showSubSection('starlink')">Starlink</button>
-                <button onclick="showSubSection('onduleur')">Onduleurs</button>
-                <button onclick="showSubSection('maintenance')">Maintenance</button>
+                <button onclick="showSubSection('federation')">Federation</button>
+                <button onclick="showSubSection('atoucklic')">Atoucklic</button>
             </div>
 
-            <!-- Sous-section Réseaux -->
-            <div id="reseaux" class="sub-section active">
-                <h3>Installation et Configuration des Réseaux</h3>
-                <div class="flex-container">
-                    <div class="image-container">
-                        <img src="images/reseaux.jpg" alt="Installation réseau">
-                    </div>
-                    <div class="text-container">
-                        <p>
-                            L'installation et la configuration de réseaux sont des compétences clés que j'ai développées au cours de mes études et de mes expériences professionnelles.
-                            J'ai travaillé sur des projets variés, allant de la mise en place de petits réseaux domestiques à des infrastructures complexes pour des entreprises et particuliers.
-                        </p>
-                    </div>
-                    <div class="fig_img ">
-                        <figure>
-                            <img src="images/reseaux2.jpg">
-                            <figcaption>Test et amélioration de la couverture Wi-Fi.</figcaption>
-                        </figure>
-                    </div>
+            <div id="federation" class="sub-section active">
+                <h3>Fédération des Églises Adventiste de la Martinique: Accueil </h3>
+
+                <div class="fig_img">
+                    <figure>
+                        <img src="images/feam.jpg" >
+                        <figcaption>Fédération des Églises Adventiste de la Martinique </figcaption>
+                    </figure>
+                </div>
+
+                <div class="fig_img ">
+                    <figure>
+                        <img src="images/reseaux2.jpg">
+                        <figcaption>Test et amélioration de la couverture Wi-Fi.</figcaption>
+                    </figure>
                 </div>
             </div>
 
-            <!-- Sous-section Vidéosurveillance -->
-            <div id="videosurveillance" class="sub-section">
+            <!-- Sous-section -->
+            <div id="atoucklic" class="sub-section">
+                <h3>Installation et Configuration des Réseaux</h3>
+
+                <div class="image-right">
+                    <img src="images/reseaux.jpg" >
+                    <p>
+                        L'installation et la configuration de réseaux sont des compétences clés que j'ai développées au cours de mes études et de mes expériences professionnelles.
+                        J'ai travaillé sur des projets variés, allant de la mise en place de petits réseaux domestiques à des infrastructures complexes pour des entreprises et particuliers.
+                    </p>
+                </div>
+
+                <div class="fig_img">
+                    <figure>
+                        <img src="images/reseaux2.jpg">
+                        <figcaption>Test et amélioration de la couverture Wi-Fi.</figcaption>
+                    </figure>
+                </div>
+
+                <div class="two-images">
+                    <img src="images/reseaux3.jpg" alt="Maintenance informatique">
+                    <img src="images/reseaux4.jpg" alt="Maintenance informatique">
+                </div>
+
+                <h3>EAP245 Point d'accès WiFi bi-bande AC1750 PoE Gigabit</h3>
+
+                <div class="image-left">
+                    <img src="images/reseaux5.jpg" alt="Maintenance informatique">
+                    <ul>
+                        <li>Débit WiFi bi-bande simultanée de 450 Mbps en 2.4 GHz et de 1300 Mbps en 5 GHz pouvant atteindre une bande passante totale de 1750 Mbps</li>
+                        <li>Conçu pour les fortes densités de clients. Idéal pour les entreprises ayant besoin d'un réseau Wifi fiable 24h/24.</li>
+                        <li>Le contrôleur logiciel WiFi inclus offre une administration centralisée et simplifiée pour une centaine d'EAP</li>
+                        <li>Support du Power over Ethernet (802.3at/af) pour une installation facile sans câblages supplémentaires</li>
+                        <li>Un portail captif fournit une méthode pratique d'authentification des clients WiFi invités</li>
+                        <li>Band Steering pour basculer automatiquement les appareils bi-bande sur la fréquence 5 GHz pour des connexions plus rapides</li>
+                        <li>L'équilibre de la charge permet à un grand nombre d'utilisateurs de bénéficier d'un réseau optimal</li>
+                        <li>Prise en charge du VLAN pour une gestion réseau améliorée</li>
+                    </ul>
+                </div>
+
+                <div class="two-images">
+                    <img src="images/reseaux6.jpg" alt="Maintenance informatique">
+                    <img src="images/reseaux7.jpg" alt="Maintenance informatique">
+                </div>
+
                 <h3>Installation et Configuration de la Vidéosurveillance</h3>
-                <div class="flex-container">
-                    <div class="image-container">
-                        <img src="C:\Users\labic\Desktop\potfolio\videosurveillance.jpg" alt="Installation vidéosurveillance">
-                    </div>
-                    <div class="text-container">
+
+                    <div class="image-left">
+                        <img src="images/videosurveillance.jpg" alt="Installation vidéosurveillance">
                         <p>
                             J'ai également travaillé sur l'installation et la configuration de systèmes de vidéosurveillance. Cela inclut la mise en place de caméras, la configuration des enregistreurs numériques et l'intégration des systèmes de surveillance avec les réseaux existants.
                         </p>
                     </div>
-                </div>
-            </div>
 
-            <!-- Sous-section Starlink -->
-            <div id="starlink" class="sub-section">
-                <h3>Installation et Configuration de Starlink</h3>
-                <div class="flex-container">
-                    <div class="image-container">
-                        <img src="C:\Users\labic\Desktop\potfolio\starlink.jpg" alt="Installation Starlink">
-                    </div>
-                    <div class="text-container">
+                    <h3>Installation et Configuration de Starlink</h3>
+                    <div class="image-right">
+                        <img src="images/starlink.jpg" alt="Installation Starlink">
                         <p>
-                            J'ai participé à l'installation et à la configuration de systèmes Starlink pour fournir un accès Internet haut débit dans des zones rurales. Cela inclut l'installation des antennes paraboliques et la configuration des routeurs pour une connectivité optimale.
+                            J'ai participé à l'installation et à la configuration de systèmes Starlink pour fournir un accès Internet haut débit dans des zones rurales. 
+                            Cela inclut l'installation des antennes paraboliques et la configuration des routeurs pour une connectivité optimale.
+                            <br>analyser les meilleur emplacement de l'antenne en respectant des contrainte esthétique et choix de l'offre la plus adapter ou nécessaire au besoin du client  
+                            <br>Ces étapes m’ont permis de détecter et de résoudre des problèmes efficacement tout en documentant ce que je faisais pour expliquer les solutions au client.  
                         </p>
                     </div>
-                </div>
-            </div>
 
-            <!-- Sous-section Onduleurs -->
-            <div id="onduleur" class="sub-section">
-                <h3>Installation et Configuration des Onduleurs</h3>
-                <div class="flex-container">
-                    <div class="image-container">
-                        <img src="C:\Users\labic\Desktop\potfolio\onduleur.jpg" alt="Installation onduleur">
-                    </div>
-                    <div class="text-container">
+                    <h3>Installation et Configuration des Onduleurs</h3>
+                    <div class="image-right">
+                        <img src="images/onduleur.jpg" alt="Installation onduleur">
                         <p>
                             J'ai travaillé sur l'installation et la configuration d'onduleurs pour assurer une alimentation électrique stable et sécurisée pour les équipements informatiques critiques. Cela inclut la configuration des paramètres de basculement et la gestion des batteries.
                         </p>
                     </div>
-                </div>
-            </div>
 
-            <!-- Sous-section Maintenance -->
-            <div id="maintenance" class="sub-section">
-                <h3>Maintenance des Systèmes Informatiques</h3>
-                <div class="flex-container">
-                    <div class="image-container">
-                        <img src="C:\Users\labic\Desktop\potfolio\maintenance.jpg" alt="Maintenance informatique">
-                    </div>
-                    <div class="text-container">
+                    <h3>Maintenance des Systèmes Informatiques</h3>
+                    <div class="image-right">
+                        <img src="images/maintenance.jpg" alt="Maintenance informatique">>
                         <p>
                             La maintenance des systèmes informatiques est une partie essentielle de mon travail. Cela inclut la surveillance des performances, la résolution des problèmes et la mise à jour des logiciels et du matériel pour assurer un fonctionnement optimal.
                         </p>
                     </div>
-                </div>
+
             </div>
         </section>
-
-        <!-- Ajoutez les autres sections ici -->
     </main>
 
     <script>
