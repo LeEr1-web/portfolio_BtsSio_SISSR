@@ -9,8 +9,8 @@
         /* Styles généraux */
         body {
             font-family: 'Poppins', sans-serif;
-            margin: 0;
-            padding: 0;
+            margin: 100;
+            padding: 10;
             background-color: #f5f5f5;
             color: #333;
             line-height: 1.6;
@@ -20,7 +20,7 @@
         header {
             background: #16213e;
             color: white;
-            padding: 3px;
+            padding: 5px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -208,13 +208,6 @@
             list-style-type: disc;
             padding-left: 40px;
         }
-
-        /* Style général */
-        .section {
-            padding: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
         
         .section-title {
             text-align: center;
@@ -342,8 +335,226 @@
         color: #2980b9;
         text-decoration: underline;
     }
-        /* Animation pour les sections */
-        @keyframes fadeIn {
+
+    /* Styles spécifiques pour la section SISR */
+.year-card {
+    background: white;
+    border-radius: 10px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.year-card h3 {
+    color: #16213e;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+}
+
+.missions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.mission-card {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border-left: 4px solid #3498db;
+    transition: transform 0.3s;
+}
+
+.mission-card:hover {
+    transform: translateY(-3px);
+}
+
+.mission-card.highlight {
+    background: #e3f2fd;
+    border-left-color: #4d45e9;
+}
+
+.mission-card h4 {
+    color: #2c3e50;
+    margin-bottom: 0.8rem;
+    font-size: 1.1rem;
+}
+
+.mission-card ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 1rem;
+}
+
+.mission-card li {
+    padding: 0.3rem 0;
+    display: flex;
+    align-items: baseline;
+}
+
+.mission-card li:before {
+    content: "▹";
+    color: #3498db;
+    margin-right: 0.5rem;
+}
+
+.competences {
+    color: #7f8c8d;
+    font-size: 0.9rem;
+    margin-top: 1rem;
+}
+
+/* Styles globaux */
+.section {
+  padding: 4rem 1.5rem;
+  animation: fadeIn 0.6s ease;
+}
+
+.section-title {
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 2rem;
+  font-size: 2.2rem;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.section-title::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: #3498db;
+  margin: 0.5rem auto 0;
+}
+
+/* Grille commune */
+.grid {
+  display: grid;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+}
+
+/* Cartes unifiées */
+.card {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  border: 1px solid #e0e0e0;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card.highlight {
+  border: 2px solid #3498db;
+}
+
+/* En-tête de carte */
+.card-header {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.card-img-container {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 1rem;
+  padding: 12px;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.card-img {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Corps de carte */
+.card-body {
+  color: #34495e;
+  line-height: 1.6;
+}
+
+.card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-bottom: 1.2rem;
+}
+
+.badge {
+  background: #3498db;
+  color: white;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+}
+
+/* Listes */
+.skills-list {
+  padding-left: 1.2rem;
+  margin: 1rem 0;
+}
+
+.skills-list li {
+  margin-bottom: 0.6rem;
+  padding-left: 1rem;
+  position: relative;
+}
+
+.skills-list li::before {
+  content: "▹";
+  position: absolute;
+  left: -1rem;
+  color: #3498db;
+}
+
+/* Bilan */
+.highlight-box {
+  background: #16213e;
+  color: white;
+  padding: 2rem;
+  border-radius: 12px;
+  margin-top: 2rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .section {
+    padding: 2rem 1rem;
+  }
+  
+  .card {
+    padding: 1rem;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Animation pour les sections */
+@keyframes fadeIn {
             from {
                 opacity: 0;
                 transform: translateY(20px);
@@ -360,6 +571,22 @@
 
         /* Responsive design */
         @media (max-width: 768px) {
+
+            .missions-grid {
+        grid-template-columns: 1fr;
+            }
+            
+            .competences-list {
+                flex-direction: column;
+            }
+            
+            .year-card {
+                padding: 1rem;
+            }
+            
+            .mission-card {
+                padding: 1rem;
+            }
             .certifications-grid {
             grid-template-columns: 1fr;
             }
@@ -415,6 +642,8 @@
                 </figure>
             </div>
             <h2>Introduction</h2>
+
+            <h2 class="section-title">LABICHE ERWAN </h2>
             <div class="image-left">
                 <img src="images/parcours.jpg" alt="Image 1">
                 <p>
@@ -432,90 +661,172 @@
             </div>
         </section>
 
-       <!-- Section Parcours -->
+      <!-- Section Parcours -->
         <section id="parcours" class="section">
-            <h2>Parcours</h2>
+            <h2 class="section-title">Parcours</h2>
+            
+            <!-- Navigation entre sous-sections -->
             <div class="stage-nav">
                 <button onclick="showSubSection('tableau')">Tableau</button>
-                <button onclick="showSubSection('specialite')">Spécialité</button>
                 <button onclick="showSubSection('ap')">AP</button>
+                <button onclick="showSubSection('specialite')">Spécialité</button>
             </div>
 
+            <!-- Sous-section Tableau de compétences -->
             <div id="tableau" class="sub-section active">
-                <h2>Spécialité</h2>
-                <img src="LABICHE_ERWAN_Tableau_de_synthèse.pdf">
+                <h2>Tableau de compétences</h2>
+                <a class="cta-button" href="https://docs.google.com/spreadsheets/d/1Q_LI8JVht35JS8GegIkIB5LY8rZa3DjqthlCAt9gnDw/edit?usp=sharing">
+                    Accéder au tableau complet
+                </a>
             </div>
 
-            <!-- Sous-section Réseaux -->
-            <div id="specialite" class="sub-section">
-                <h2>Parcours en BTS SIO – Première et Deuxième Année</h2>
-                <p>
-                    <strong>Objectif :</strong> Acquérir les bases fondamentales en développement logiciel, administration système et réseaux.  
-                    <br><strong>Description :</strong>  
-                    La première année de BTS SIO m'a permis de découvrir les deux spécialités (SLAM et SISR) et de consolider mes compétences en programmation, bases de données, et gestion d'infrastructure.  
-                    <br><strong>Activités et compétences acquises :</strong>  
-                    <ul>  
-                        <li><strong>Programmation (Python, Java) :</strong> Création d'applications console, manipulation des structures de données, et initiation à la POO.</li>  
-                        <li><strong>Bases de données (SQL) :</strong> Conception de schémas relationnels, requêtes CRUD, et utilisation de systèmes comme MySQL ou PostgreSQL.</li>  
-                        <li><strong>Réseaux (CCNA 1) :</strong> Apprentissage des topologies réseau, modèle OSI/TCP-IP, et configuration basique de switchs/routiers.</li>  
-                        <li><strong>Systèmes (Windows Server, Linux) :</strong> Gestion des utilisateurs, permissions, et services réseau (DHCP, DNS).</li>  
-                    </ul>  
-                </p>  
-
-                <p>  
-                    <strong>Objectif :</strong> Approfondir la spécialité SISR avec des projets concrets et des technologies avancées.  
-                    <br><strong>Description :</strong>  
-                    La deuxième année a été axée sur la mise en pratique via des simulations d'environnements professionnels, notamment avec des projets comme la refonte du réseau de la M2L (Maison des Ligues de Lorraine).  
-                    <br><strong>Activités et compétences acquises :</strong>  
-                    <ul>  
-                        <li><strong>Virtualisation (VMware, Proxmox) :</strong> Déploiement de machines virtuelles et gestion de clusters.</li>  
-                        <li><strong>Sécurité informatique :</strong> Mise en place de pare-feux (pfSense), VPN, et détection d'intrusions.</li>  
-                        <li><strong>Routage dynamique (OSPF) :</strong> Configuration de réseaux multi-sites avec redondance.</li>  
-                        <li><strong>Scripting (Bash, PowerShell) :</strong> Automatisation de tâches système (sauvegardes, monitoring).</li>  
-                        <li><strong>Projet M2L :</strong>  
-                            <ul>  
-                                <li>Déploiement d'un annuaire LDAP (OpenLDAP).</li>  
-                                <li>Migration IPv4 vers IPv6.</li>  
-                                <li>Mise en place d'un serveur de fichiers haute disponibilité (NAS).</li>  
-                            </ul>  
-                        </li>  
-                    </ul>  
-                </p>  
-
-                <p>  
-                    <strong>Bilan :</strong> Ce parcours m'a permis de développer une double compétence en <strong>réseaux</strong> et <strong>systèmes</strong>, tout en renforçant mon autonomie et ma capacité à travailler en équipe (méthodologie Agile, gestion de projet). Je suis désormais capable de concevoir, sécuriser et dépanner une infrastructure répondant aux besoins des entreprises.  
-                </p>
-            </div>
-
-            <!-- Sous-section Missions -->
+            <!-- Sous-section AP (Ateliers Professionnels) -->
             <div id="ap" class="sub-section">
-                <h2>Sécurité informatique</h2>
-                <p> Au sein de mas speciliter 
-                    <strong>Objectif :</strong> Protéger les données et les systèmes de la M2L contre les menaces externes et internes.
-                    <br><strong>Description :</strong>
-                    Cette section aborde les aspects clés de la sécurité informatique, y compris la mise en place de politiques de sécurité, la configuration des règles de filtrage, et la sensibilisation des utilisateurs.
-                    <br><strong>Compétences acquises :</strong>
-                    <ul>
-                        <li><strong>Politiques de sécurité :</strong> Déploiement de pare-feu, antivirus, et anti-malware pour protéger les systèmes.</li>
-                        <li><strong>Règles de filtrage :</strong> Configuration des règles de contrôle d'accès pour limiter les accès non autorisés.</li>
-                        <li><strong>Sensibilisation des utilisateurs :</strong> Formation des utilisateurs aux bonnes pratiques de sécurité pour réduire les risques.</li>
-                        <li><strong>Audit de sécurité :</strong> Identification et correction des vulnérabilités pour renforcer la sécurité globale.</li>
-                    </ul>
-                </p>
+                <h2 class="section-title">👨 Acompagnement professionnel 💻</h2>
 
-                <h3>Mission 4 : Mise en place d'un DHCP relais et configuration avec Active Directory</h3>
-                <p>
-                    <strong>Objectif :</strong> Simplifier la gestion des adresses IP sur le réseau de la M2L en déployant un serveur DHCP centralisé avec relais, intégré à Active Directory.
-                    <br><strong>Tâches principales :</strong>
-                    <ul>
-                        <li><strong>Installation du rôle DHCP :</strong> Ajout du rôle "Serveur DHCP" via le Gestionnaire de serveur.</li>
-                        <li><strong>Configuration des étendues DHCP :</strong> Définition des plages d'adresses IP, durée de bail, etc.</li>
-                        <li><strong>Activation du relais DHCP :</strong> Utilisation de l'option IP Helper sur les routeurs ou switchs compatibles.</li>
-                        <li><strong>Intégration avec Active Directory :</strong> Autorisation du serveur DHCP dans Active Directory pour éviter les conflits.</li>
-                        <li><strong>Tests et validation :</strong> Vérification que les clients réseau obtiennent bien une adresse IP via le serveur DHCP.</li>
-                        <li><strong>Documentation :</strong> Rédaction d'un guide de configuration pour le DHCP relais et son intégration avec Active Directory.</li>
+                <!-- Première Année -->
+                <div class="year-container">
+                    <h3>🎓 1ère Année : Fondamentaux réseaux</h3>
+                    <div class="grid">
+                        <!-- Mission Wi-Fi -->
+                        <div class="card">
+                            <h4>📶 Mission Wi-Fi (Sep-Oct 2023)</h4>
+                            <ul class="skills-list">
+                                <li>✔ Analyse des normes 802.11</li>
+                                <li>✔ Implantation de bornes en entreprise</li>
+                                <li>✔ Rédaction de documentation technique</li>
+                            </ul>
+                            <div class="card-meta">
+                                <span class="badge">🔧 Compétences</span>
+                                <span>Gestion de parc, topologie réseau</span>
+                            </div>
+                        </div>
+
+                        <!-- Mission Messagerie -->
+                        <div class="card">
+                            <h4>📧 Messagerie Professionnelle (Oct-Nov 2023)</h4>
+                            <ul class="skills-list">
+                                <li>✔ Comparatif SMTP/IMAP/POP3</li>
+                                <li>✔ Configuration Exchange Server</li>
+                                <li>✔ Sécurisation des flux mail</li>
+                            </ul>
+                            <div class="card-meta">
+                                <span class="badge">📌 Compétences</span>
+                                <span>Services applicatifs, sécurité</span>
+                            </div>
+                        </div>
+
+                        <!-- Mission Stockage -->
+                        <div class="card">
+                            <h4>💾 Solutions de Stockage (Dec-Jan 2024)</h4>
+                            <ul class="skills-list">
+                                <li>✔ Architecture NAS/SAN</li>
+                                <li>✔ Virtualisation FreeNAS</li>
+                                <li>✔ Plan de sauvegarde</li>
+                            </ul>
+                            <div class="card-meta">
+                                <span class="badge">🚀 Compétences</span>
+                                <span>Gestion de patrimoine</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Deuxième Année -->
+                <div class="year-container highlight">
+                    <h3>🚀 2ème Année : Expertise avancée</h3>
+                    <div class="grid">
+                        <!-- Mission Virtualisation -->
+                        <div class="card">
+                            <h4>🖥️ 🖥️Mission 1-2 virtualisation et mise en oeuvre des serveurs + haute disponibilité  (Sep-Oct 2024)</h4>
+                            <ul class="skills-list">
+                                <li>✔ haute disponibilité AD/DHCP</li>
+                                <li>✔ Réplication VMs + sauvegardes</li>
+                                <li>✔  Virtualisation Hyper-V</li>
+                            </ul>
+                            <div class="card-meta">
+                                <span class="badge">🔐 Compétences</span>
+                                <span>Infrastructure cloud hybride</span>
+                            </div>
+                        </div>
+
+                        <!-- Mission Cisco -->
+                        <div class="card">
+                            <h4>🌐 Comutation et routagé (Oct-Dec 2024)</h4>
+                            <ul class="skills-list">
+                                <li>✔ routage Inter-VLAN + Spanning Tree</li>
+                                <li>✔ ACL + tunnel GRE</li>
+                                <li>✔ Documentation via Packet Tracer</li>
+                            </ul>
+                            <div class="card-meta">
+                                <span class="badge">📡 Compétences</span>
+                                <span>Architecture réseau sécurisée</span>
+                            </div>
+                        </div>
+
+                        <!-- Mission Starlink -->
+                        <div class="card">
+                            <h4>🛰️ Déploiement dhcp relais (Fev-Avril 2025)</h4>
+                            <ul class="skills-list">
+                                <li>✔ Mise en place d'etendue</li>
+                                <li> Comunication Inter-VLAN</li>
+                            </ul>
+                            <div class="card-meta">
+                                <span class="badge">📶 Compétences</span>
+                                <span>Réseaux étendus</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sous-section Spécialité -->
+            <div id="specialite" class="sub-section">
+                <h2 class="section-title">🔒 Parcours SISR et Cybersécurité en BTS</h2>
+                
+                <div class="card">
+                    <h3>🛡️ protocole et optimisation</h3>
+                    <div class="grid">
+                        <div class="card">
+                            <ul>
+                                <li>IVP4/IPV6</li>
+                                <li>simulation</li>
+                                <li>routages dinamique</li>
+                                <li>redonance</li>
+                                <li>spanning tree</li>
+                                <li>protocoles</li>
+                                <li>agregation de liens</li>
+                                <li>Lan acces</li>
+                                <li>haute dysponibilité</li>
+                                <li>tunnel de GTE</li>
+                                <li>ACL</li>
+                                <li>pare-feu </li>
+                                <li>Cisco, Fortinet , Stormshield</li>
+                            </ul>
+                        </div>
+
+                        <div class="card">
+                            <h4>Sensibilisation et mise en place de methodes</h4>
+                            <ul>
+                                <li>Formation phishing et methode de Hacking (brute force , ddos ...)</li>
+                                <li>Campagne de sensibilisation RGPD</li>
+                                <li>Certficat SSL et AD/ADCS</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card highlight">
+                    <h3>🎯 Projet phare : Infrastructure optimiser et sécurisé </h3>
+                    <ul class="skills-list">
+                        <li>✔ Intégration avec Active Directory</li>
+                        <li>✔ Réservation d'adresses sécurisées</li>
+                        <li>✔ Documentation complète</li>
                     </ul>
-                </p>
+                    <div class="card-meta">
+                        <span class="badge">🏅 Compétences</span>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -524,7 +835,7 @@
             <h2 class="section-title">📜 Mes Certifications</h2>
             
             <div class="certifications-intro">
-                <p>En BTS SIO SISR, j'ai bossé sur plusieurs certifs importantes pour valider mes compétences pro. Voici ce que j'ai pu obtenir :</p>
+                <p>En BTS SIO SISR, j'ai travailler sur plusieurs certifs importantes pour valider mes compétences pro. Voici ce que j'ai pu obtenir :</p>
             </div>
             
             <div class="certifications-grid">
@@ -585,7 +896,35 @@
                 </div>
 
                 <!-- Certification Cisco -->
-                <div class="certification-card">
+                <div class="certification-card highlight-card">
+                    <div class="certification-header">
+                        <div class="certification-image-container">
+                            <img src="images/openclassrooms.png" alt="Cisco Networking Academy" class="certification-image">
+                        </div>
+                        <h3 class="certification-title">OpenClassroom</h3>
+                    </div>
+                    <div class="certification-body">
+                        <p class="certification-meta">
+                            <span class="badge">CCNA</span>
+                            <span class="issuer">Cisco</span>
+                            <span class="date">2024</span>
+                        </p>
+                        <div class="certification-content">
+                            <p><strong>Durée :</strong> 30h en ligne</p>
+                            <p><strong>Acquis techniques :</strong></p>
+                            <ul class="skills-list">
+                                <li>🕵️‍♂️ Analyse de logs</li>
+                                <li>🌐 Sécurité réseau</li>
+                                <li>🔑 Principes cryptographiques</li>
+                            </ul>
+                            <p><strong>Projet :</strong> Mise en place d'un SIEM basique</p>
+                            <a href="https://www.netacad.com" target="_blank" class="certification-link">Voir le programme →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certification Cisco -->
+                <div class="certification-card highlight-card">
                     <div class="certification-header">
                         <div class="certification-image-container">
                             <img src="images/cisco.png" alt="Cisco Networking Academy" class="certification-image">
@@ -613,7 +952,7 @@
                 </div>
 
                 <!-- Certification Coursera Cybersecurity -->
-                <div class="certification-card">
+                <div class="certification-card highlight-card">
                     <div class="certification-header">
                         <div class="certification-image-container">
                             <img src="images/coursera.png" alt="Coursera Cybersecurity" class="certification-image">
@@ -622,7 +961,8 @@
                     </div>
                     <div class="certification-body">
                         <p class="certification-meta">
-                            <span class="titre">La cybersécurité pour tous</span>
+                            <span class="titre">La cybersécurité<br> pour tous</span>
+                            
                             <span class="badge">IBM</span>
                             <span class="issuer">Coursera</span>
                             <span class="date">2024</span>
@@ -631,7 +971,9 @@
                             <p><strong>Durée :</strong> 40h en ligne</p>
                             <p><strong>Points forts :</strong></p>
                             <ul class="skills-list">
+                                <li>Fortinet</li>
                                 <li>🛡️ Ethical Hacking basics</li>
+                                <li>🛡️ Securisation Cloud </li>
                                 <li>🔍 Analyse de vulnérabilités</li>
                                 <li>🚨 Réponse aux incidents</li>
                             </ul>
@@ -650,11 +992,13 @@
                 <p>
                     Pour effectuer ma veille technologique, j’utilise « Google Alertes « , qui me crée des alertes toutes les semaines.
                     Celui-ci me permet d’être toujours au courant de toutes les actualités que je souhaite.
+                    <br>je l'utulise egalement de facon personnelle pour rester a lactu sur differente actualiter
                     <br>
-                    J’ai ajouté à celui-ci, différentes sources telles que : ANSSI, Le Monde Informatique, …
+                    J’ai ajouté à celui-ci, différentes sources telles que : ANSSI, Le Monde Informatique,glpi, linux, windows...
                     Pour ma veille technologique j'ai choisi La Blockchain
                     <br>
-                    je consulte regulierement le site de fandroid 
+                    je consulte aussi regulierement les resaux sociaux et site tel que youtube pour les innovation tecnologique
+                    <br> je consulte aussi le site de fandroid
                 </p>
             </div>
         </section>
@@ -677,42 +1021,65 @@
                     </figure>
                 </div>
 
-                <div class="fig_img ">
-                    <figure>
-                        <img src="images/reseaux2.jpg">
-                        <figcaption>Test et amélioration de la couverture Wi-Fi.</figcaption>
-                    </figure>
+                <p>
+
+                J'ai effecture mon stage de premier année à la féderation adventise de la Martinique (FEAM).
+                <br>la (FEAM) est le coeur d'un resaux qui relis a peut pres 72 eglise Adventiste en martique.
+
+                </p>
+
+                <div class="image-left">
+                    <img src="images/feam (1).jpg" >
+                <p>j'ai pu opprofondire m'as connaissance sur l'infrastructur et la mise en place de solution et d'outils au sain de leur reseaux 
+                   <br> Tel que la mise en place de Nas et d'application develloper par eux memes,
+                   <br> se stage ma permis d'obtenir des connaissance plus approfondie en se qui concerner les reseaux d'entreprise
+                   <br> j'ai pue contribuer aux aides en réparent des pc, assisté aux clablages
+                   et au dévellopement de leurs pressences en ligne en leur produisant des flyers.
+                </p>
                 </div>
+
             </div>
 
             <!-- Sous-section -->
             <div id="atoucklic" class="sub-section">
+                <div class="fig_img">
+                    <figure>
+                        <img src="images/atouklic.jpeg" >
+                        <figcaption>ATOUKLIC, c'est la vente, la fourniture, la livraison, l'installation 
+                            <br>et la mise en œuvre de matériels et logiciels, maintenance, dépannage, accès Internet, formation, sécurisation et récupération de vos données en Martinique.
+                            <br>ATOUKLIC propose un catalogue complet d'ordinateurs HP et LENOVO, fixes et portables, des imprimantes, 
+                            <br>des consommables et accessoires, des composants réseaux et les logiciels nécessaires au bon fonctionnement de vos équipements (Microsoft Windows, Microsoft Office, Antivirus BitDefender, les suites EBP, ...)</figcaption>
+                    </figure>
+                </div>
                 <h3>Installation et Configuration des Réseaux</h3>
-
                 <div class="image-right">
-                    <img src="images/reseaux.jpg" >
+                    <img src="images/atouklic (1).jpg" >
                     <p>
                         L'installation et la configuration de réseaux sont des compétences clés que j'ai développées au cours de mes études et de mes expériences professionnelles.
                         J'ai travaillé sur des projets variés, allant de la mise en place de petits réseaux domestiques à des infrastructures complexes pour des entreprises et particuliers.
+                    </p>
+                    <p class="card-meta">
+                        <span class="badge">📡 Compétences</span>
+                        <span>Gérer le patrimoine informatique</span>
                     </p>
                 </div>
 
                 <div class="fig_img">
                     <figure>
-                        <img src="images/reseaux2.jpg">
-                        <figcaption>Test et amélioration de la couverture Wi-Fi.</figcaption>
+                        <img src="images/atouklic (2).jpg">
+                        <figcaption>Switch relier as des TP link et Starlink</figcaption>
                     </figure>
                 </div>
 
-                <div class="two-images">
-                    <img src="images/reseaux3.jpg" alt="Maintenance informatique">
-                    <img src="images/reseaux4.jpg" alt="Maintenance informatique">
+                <div class="two-images">    
+                    <img src="images/atouklic (3).jpg" alt="Maintenance informatique">
+                    <img src="images/atouklic (4).jpg" alt="Maintenance informatique">
                 </div>
 
                 <h3>EAP245 Point d'accès WiFi bi-bande AC1750 PoE Gigabit</h3>
 
                 <div class="image-left">
-                    <img src="images/reseaux5.jpg" alt="Maintenance informatique">
+                    <img src="images/atouklic (5).jpg" alt="Maintenance informatique">
                     <ul>
                         <li>Débit WiFi bi-bande simultanée de 450 Mbps en 2.4 GHz et de 1300 Mbps en 5 GHz pouvant atteindre une bande passante totale de 1750 Mbps</li>
                         <li>Conçu pour les fortes densités de clients. Idéal pour les entreprises ayant besoin d'un réseau Wifi fiable 24h/24.</li>
@@ -723,49 +1090,97 @@
                         <li>L'équilibre de la charge permet à un grand nombre d'utilisateurs de bénéficier d'un réseau optimal</li>
                         <li>Prise en charge du VLAN pour une gestion réseau améliorée</li>
                     </ul>
+                    <p class="card-meta">
+                        <span class="badge">📡 Compétences</span>
+                        <span>Mettre à disposition des utilisateurs un service informatique</span>
+                    </p>
                 </div>
 
                 <div class="two-images">
-                    <img src="images/reseaux6.jpg" alt="Maintenance informatique">
-                    <img src="images/reseaux7.jpg" alt="Maintenance informatique">
+                    <img src="images/atouklic (6).jpg" alt="Maintenance informatique">
+                    <img src="images/atouklic (7).jpg" alt="Maintenance informatique">
                 </div>
 
-                <h3>Installation et Configuration de la Vidéosurveillance</h3>
-
-                    <div class="image-left">
-                        <img src="images/videosurveillance.jpg" alt="Installation vidéosurveillance">
-                        <p>
-                            J'ai également travaillé sur l'installation et la configuration de systèmes de vidéosurveillance. Cela inclut la mise en place de caméras, la configuration des enregistreurs numériques et l'intégration des systèmes de surveillance avec les réseaux existants.
-                        </p>
-                    </div>
-
-                    <h3>Installation et Configuration de Starlink</h3>
+                <h3>Installation et Configuration de Starlink</h3>
                     <div class="image-right">
-                        <img src="images/starlink.jpg" alt="Installation Starlink">
+                        <img src="images/atouklic (8).jpg" alt="Installation Starlink">
                         <p>
                             J'ai participé à l'installation et à la configuration de systèmes Starlink pour fournir un accès Internet haut débit dans des zones rurales. 
                             Cela inclut l'installation des antennes paraboliques et la configuration des routeurs pour une connectivité optimale.
                             <br>analyser les meilleur emplacement de l'antenne en respectant des contrainte esthétique et choix de l'offre la plus adapter ou nécessaire au besoin du client  
                             <br>Ces étapes m’ont permis de détecter et de résoudre des problèmes efficacement tout en documentant ce que je faisais pour expliquer les solutions au client.  
                         </p>
-                    </div>
-
-                    <h3>Installation et Configuration des Onduleurs</h3>
-                    <div class="image-right">
-                        <img src="images/onduleur.jpg" alt="Installation onduleur">
-                        <p>
-                            J'ai travaillé sur l'installation et la configuration d'onduleurs pour assurer une alimentation électrique stable et sécurisée pour les équipements informatiques critiques. Cela inclut la configuration des paramètres de basculement et la gestion des batteries.
+                        <p class="card-meta">
+                            <span class="badge">📡 Compétences</span>
+                            <span>Mettre à disposition des utilisateurs un service informatique</span>
+                            <span>Travailler en mode projet</span>
                         </p>
                     </div>
 
-                    <h3>Maintenance des Systèmes Informatiques</h3>
-                    <div class="image-right">
-                        <img src="images/maintenance.jpg" alt="Maintenance informatique">>
-                        <p>
-                            La maintenance des systèmes informatiques est une partie essentielle de mon travail. Cela inclut la surveillance des performances, la résolution des problèmes et la mise à jour des logiciels et du matériel pour assurer un fonctionnement optimal.
-                        </p>
-                    </div>
+                <h3>Maintenance des Systèmes Informatiques</h3>
 
+                    <div class="two-images">
+                        <img src="images/atouklic (9).jpg" alt="Maintenance informatique">
+                        <img src="images/atouklic (10).jpg" alt="Maintenance informatique">
+                    </div>
+                    <p>
+                        La maintenance des systèmes informatiques est une partie essentielle de mon travail. Cela inclut la surveillance des performances, la résolution des problèmes et la mise à jour des logiciels et du matériel pour assurer un fonctionnement optimal.
+                        Exemple : l'outil, Testeur Traceur qui permet de détecter, tracer et localiser les ruptures de connexions de tous types dont fibre optique
+                    </p>
+
+                <div class="two-images"></div>
+
+                    <img src="images/PC.jpg" alt="Maintenance informatique">
+                    <img src="images/onduleur.jpg" alt="Maintenance informatique">
+                </div>
+                <p>
+                    Pour assurer une alimentation électrique stable et sécurisée pour les équipements informatiques critiques. Cela inclut la configuration des paramètres de basculement et la gestion des batteries.
+                </p> 
+
+
+                <h3>Installation et Configuration de la Vidéosurveillance et d'imprimante</h3>
+
+                <div class="image-left">
+                        <img src="images/videosurveillance.jpg" alt="Installation vidéosurveillance">
+                    <p>
+                        J'ai également travaillé sur l'installation et la configuration de systèmes de vidéosurveillance. Cela inclut la mise en place de caméras, la configuration des enregistreurs numériques et l'intégration des systèmes de surveillance avec les réseaux existants.
+                    </p>
+                </div>
+                <div class="two-images">
+                    <img src="images/videosurveillance1.jpg" alt="Maintenance informatique">
+                    <img src="images/videosurveillance2.avif" alt="Maintenance informatique">
+                </div>
+            </div>
+        </section>
+
+        <section id="soft_skills" class="section">
+
+            <!-- Bilan -->
+            <div class="card highlight">
+                <h3>📌 Ce que je maîtrise aujourd'hui</h3>
+                <div class="grid">
+                    <div class="card">
+                        <h4>🛠️ Hard Skills</h4>
+                        <ul class="skills-list">
+                            <li>Configuration avancée Cisco</li>
+                            <li>Gestion Machine Virtuels</li>
+                            <li>Déploiement LAN</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="card">
+                        <h4>💼 Soft Skills</h4>
+                        <ul class="skills-list">
+                            <li>développements</li>
+                            <li>Documentation technique</li>
+                            <li>Gestion de projet Agile</li>
+                            <li>mise en place de resource et outils</li>
+                        </ul>
+                    </div>
+                </div>
+                <p class="card-meta" style="text-align: center; margin-top: 1.5rem;">
+                    Prêt à mettre ces compétences au service de votre infrastructure ! 👨💻
+                </p>
             </div>
         </section>
     </main>
